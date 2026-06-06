@@ -135,3 +135,4 @@ class ExamSys:
             else:
                 print("功能编号不存在，请正确输入功能编号（0~4）：")
             print("-"*40)
+            
