@@ -48,63 +48,33 @@
 
 ```python
 
-def random\_roll\_call(self):
-
-&#x20;   """功能4：随机不重复点名，异常捕获：非数字、<=0、超总人数"""
-
-&#x20;   # 获取学生列表总长度，得到全体学生数量
-
-&#x20;   total = len(self.student\_list)
-
-&#x20;   print(f"当前总学生数量：{total}名")
-
-&#x20;   # 循环结构，持续接收输入直到输入内容合法
-
-&#x20;   while True:
-
-&#x20;       num\_str = input("请输入需要点名的学生数量：").strip()
-
-&#x20;       try:
-
-&#x20;           # 尝试将输入字符串转为整型，非数字内容会触发ValueError进入异常捕获
-
-&#x20;           num = int(num\_str)
-
-&#x20;           # 判断输入数字小于等于0的场景，输出指定错误提示，继续循环等待重新输入
-
-&#x20;           if num <= 0:
-
-&#x20;               print("\[输入错误]点名人数必须大于0。")
-
-&#x20;               continue
-
-&#x20;           # 判断输入数字超过学生总数的场景，输出超限提示
-
-&#x20;           if num > total:
-
-&#x20;               print(f"\[输入错误]点名人数({num})超过学生总人数({total}),请重新输入。")
-
-&#x20;               continue
-
-&#x20;           # random.sample实现无重复随机取样，从学生列表抽取指定数量学生
-
-&#x20;           pick\_list = random.sample(self.student\_list, num)
-
-&#x20;           print("本次随机点名结果：")
-
-&#x20;           # 遍历点名结果，序号从1开始格式化输出姓名+学号
-
-&#x20;           for index, s in enumerate(pick\_list, start=1):
-
-&#x20;               print(f"{index}.{s.name} {s.sid}")
-
-&#x20;           # 输入合法，跳出while循环，结束点名功能
-
-&#x20;           break
-
-&#x20;       except ValueError:
-
-&#x20;           # 捕获字符串无法转数字的异常，输出对应报错信息
-
-&#x20;           print(f"\[输入错误]invalid Literal for int() with base 10:'{num\_str}'")
-
+def random_roll_call(self):
+    """功能4：随机不重复点名，异常捕获：非数字、<=0、超总人数"""
+    # 获取学生列表总长度，得到全体学生数量
+    total = len(self.student_list)
+    print(f"当前总学生数量：{total}名")
+    # 循环结构，持续接收输入直到输入内容合法
+    while True:
+        num_str = input("请输入需要点名的学生数量：").strip()
+        try:
+            # 尝试将输入字符串转为整型，非数字内容会触发ValueError进入异常捕获
+            num = int(num_str)
+            # 判断输入数字小于等于0的场景，输出指定错误提示，继续循环等待重新输入
+            if num <= 0:
+                print("[输入错误]点名人数必须大于0。")
+                continue
+            # 判断输入数字超过学生总数的场景，输出超限提示
+            if num > total:
+                print(f"[输入错误]点名人数({num})超过学生总人数({total}),请重新输入。")
+                continue
+            # random.sample实现无重复随机取样，从学生列表抽取指定数量学生
+            pick_list = random.sample(self.student_list, num)
+            print("本次随机点名结果：")
+            # 遍历点名结果，序号从1开始格式化输出姓名+学号
+            for index, s in enumerate(pick_list, start=1):
+                print(f"{index}.{s.name} {s.sid}")
+            # 输入合法，跳出while循环，结束点名功能
+            break
+        except ValueError:
+            # 捕获字符串无法转数字的异常，输出对应报错信息
+            print(f"[输入错误]invalid Literal for int() with base 10:'{num_str}'")
