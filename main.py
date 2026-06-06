@@ -6,3 +6,4 @@ if __name__ == "__main__":
     sys = ExamSys()
     # 启动系统
     sys.run()
+    
