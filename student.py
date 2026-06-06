@@ -16,3 +16,4 @@ class Student:
     def get_info(self):
         info = (f"姓名:{self.name}\n性别:{self.gender} 班级:{self.clazz} 学号:{self.sid}\n学院:{self.college}")
         return info
+        
